@@ -73,7 +73,7 @@ function cifraDeCesar(){
         }else if(caracteres.charCodeAt(i) + parseInt(inc) > 90 && caracteres.charCodeAt(i) + parseInt(inc) < 99){
             cesarCodificar[i] = caracteres.charCodeAt(i) - 1;
         }else if(caracteres.charCodeAt(i) + parseInt(inc) > 122){
-            cesarCodificar[i] = (caracteres.charCodeAt(i) + parseInt(inc))- 26;
+            cesarCodificar[i] = ((caracteres.charCodeAt(i) + parseInt(inc) - 97) % 26) + 97;
         }else{
             cesarCodificar.push(caracteres.charCodeAt(i) + parseInt(inc));
         } 
@@ -95,6 +95,8 @@ function decodificaCesar () {
     for(var i = 0; i < caracteres.length; i++) {
         if(caracteres.charCodeAt(i) == 32){
             cesarDecodificar[i] = caracteres.charCodeAt(i);
+        }else if(caracteres.charCodeAt(i) - parseInt(inc) < 0){
+            cesarDecodificar[i] = ((((caracteres.charCodeAt(i) - parseInt(inc)) * -1) - 97) % 26) + 97;
         }else if(caracteres.charCodeAt(i) - parseInt(inc) < 97){
             cesarDecodificar[i] = (caracteres.charCodeAt(i) - parseInt(inc)) + 26;
         }else{
