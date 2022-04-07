@@ -12,9 +12,13 @@ var codificandoCesar = '';
 var cesarDecodificar = [];
 var cesarDecodResultado = '';
 
+
 cifraChecked.addEventListener('click', function (event) {
-    if (cifraChecked.options[0].selected == true) {
+    if (cifraChecked.value == 1) {
+        incremento.style.visibility = "visible";
         incremento.innerHTML = ` <label for="incremento">Digite o incremento:</label><br><input type="number" id="incremento">`;
+    } else {
+        incremento.style.visibility = "hidden";
     }
     
 })
