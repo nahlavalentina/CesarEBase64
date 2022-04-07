@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+#root {
+    --background: #264653;
+    --primary: #E9C46A;
+    --secondary: #E76F51;
+    --third: #2A9D8F;
+}

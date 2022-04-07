@@ -1,9 +1,9 @@
-var cifraChecked = document.querySelector('#selection')
-var incremento = document.querySelector('#receber-inc')
-var radio1 = document.querySelector('#codificar')
-var radio2 = document.querySelector('#decodificar')
-var mensagem = document.querySelector('#input-usuario')
-var resultado = document.querySelector('#receber-msg')
+var cifraChecked = document.querySelector('#selection');
+var incremento = document.querySelector('#receber-inc');
+var radio1 = document.querySelector('#codificar');
+var radio2 = document.querySelector('#decodificar');
+var mensagem = document.querySelector('#input-usuario');
+var resultado = document.querySelector('#receber-msg');
 var button = document.querySelector('#enviar');
 
 
@@ -13,7 +13,10 @@ var cesarDecodificar = [];
 var cesarDecodResultado = '';
 
 cifraChecked.addEventListener('click', function (event) {
-    incremento.innerHTML = ` <label for="incremento">Digite o incremento:</label><input type="number" id="incremento">`;
+    if (cifraChecked.options[0].selected == true) {
+        incremento.innerHTML = ` <label for="incremento">Digite o incremento:</label><br><input type="number" id="incremento">`;
+    }
+    
 })
 
 radio1.addEventListener('click', function (event) {
@@ -24,36 +27,34 @@ radio2.addEventListener('click', function (event) {
     button.innerText = `Decodificar`;   
 })
 
-button.addEventListener('click', function (event) {
+button.addEventListener('click', function(event){
     event.preventDefault();
-    if(radio1.checked == true && cifraChecked.options[0]) {
-        cifraDeCesar();
-        codificaCesar();
-        resultado.innerText = codificandoCesar;
-    }else if(radio2.checked == true && cifraChecked.options[0]){ 
-        decodificaCesar();
-        decodCesar()
-        resultado.innerText = cesarDecodResultado;
-    } else if(radio1.checked == true && cifraChecked.options[1]) {
-
-        codificarBase64()
-
-    } else if(radio2.checked == true && cifraChecked.options[1]) {
-
-        decodificarBase64()
+    if (cifraChecked.options[0]) {
+        if (radio1.checked == true) {
+            cifraDeCesar();
+            codificaCesar();
+            resultado.innerText = codificandoCesar;
+        } else if (radio2.checked == true) {
+            decodificaCesar();
+            decodCesar();
+            resultado.innerText = cesarDecodResultado;
+        }
+    } else if (cifraChecked.options[1]) {
+        if (radio1.checked == true) {
+            codificarBase64();
+        } else if (radio2.checked == true) {
+            decodificarBase64();
+        }
     }
-    
 })
 
 function codificarBase64(){
-    var valorCodificado = btoa(mensagem.value);
-    var resultado = document.querySelector("#receber-msg");
+    var valorCodificado = window.btoa(mensagem.value);
     resultado.innerText = valorCodificado;
 }
 
 function decodificarBase64(){
-    var valorDecodificado = atob(mensagem.value);
-    var resultado = document.querySelector("#receber-msg");
+    var valorDecodificado = window.atob(mensagem.value);
     resultado.innerText = valorDecodificado;
 }
 

@@ -5,27 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Special+Elite&display=swap" rel="stylesheet">
     <title>Code Master</title>
 </head>
 
-<body>
-   <form>
-    <p>Digite a mensagem a ser codificada:</p>
-    <input type="text" id="input-usuario">
-    <select id="selection">
-        <option value="1" id="check-cifra">Cifra de Cesar</option>
-        <option value="2" id="check-base">Base 64</option>
-    </select>
-    <div id="receber-inc"></div>
-    <div>
-        <input type="radio" name="codigo" id="codificar">
-        <label for="codigo">Codificar</label>
-        <input type="radio" name="codigo" id="decodificar">
-        <label for="codigo">Decodificar</label>
-    </div>
-    <button id="enviar">Enviar</button>
-    <div id="receber-msg"></div>
-   </form>
+<body id="root">
+    <header>
+        <h1>Code Master</h1>
+    </header>
+    <form class="main">
+        <p>Digite a mensagem a ser codificada:</p>
+        <input type="text" id="input-usuario">
+        <select id="selection">
+            <option value="1" id="check-cifra">Cifra de Cesar</option>
+            <option value="2" id="check-base">Base 64</option>
+        </select>
+        <div id="receber-inc"></div>
+        <div>
+            <input type="radio" name="codigo" id="codificar">
+            <label for="codigo">Codificar</label>
+            <input type="radio" name="codigo" id="decodificar">
+            <label for="codigo">Decodificar</label>
+        </div>
+        <button id="enviar">Enviar</button>
+        <textarea name="resultado" id="receber-msg"></textarea>
+    </form>
     <script src="./JS/index.js"></script>
 
 </body>
