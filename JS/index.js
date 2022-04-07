@@ -29,7 +29,7 @@ radio2.addEventListener('click', function (event) {
 
 button.addEventListener('click', function(event){
     event.preventDefault();
-    if (cifraChecked.options[0]) {
+    if (cifraChecked.value == 1) {
         if (radio1.checked == true) {
             cifraDeCesar();
             codificaCesar();
@@ -39,7 +39,7 @@ button.addEventListener('click', function(event){
             decodCesar();
             resultado.innerText = cesarDecodResultado;
         }
-    } else if (cifraChecked.options[1]) {
+    } else if (cifraChecked.value == 2) {
         if (radio1.checked == true) {
             codificarBase64();
         } else if (radio2.checked == true) {
@@ -49,12 +49,12 @@ button.addEventListener('click', function(event){
 })
 
 function codificarBase64(){
-    var valorCodificado = window.btoa(mensagem.value);
+    var valorCodificado = btoa(mensagem.value);
     resultado.innerText = valorCodificado;
 }
 
 function decodificarBase64(){
-    var valorDecodificado = window.atob(mensagem.value);
+    var valorDecodificado = atob(mensagem.value);
     resultado.innerText = valorDecodificado;
 }
 

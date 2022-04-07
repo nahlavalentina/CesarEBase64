@@ -66,11 +66,11 @@ h1 {
 }
 
 #enviar {
-    width: 90px;
+    width: 120px;
     height: 30px;
     background-color: var(--secondary);
     color: var(--background);
-    font-size: 20px;
+    font-size: 18px;
 
 }
 
